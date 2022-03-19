@@ -1,0 +1,205 @@
+[
+  {
+    "id" : "THPTVL21207",
+    "description": "Đề thi tốt nghiệp THPT năm 2021 môn Vật lý Bộ GD&ĐT mã đề 207",
+    "questions": [
+      {
+        "question": "Trong chân không, ánh sáng màu tím có bước sóng nằm trong khoảng",
+        "answers": [
+          {
+            "identifier": "A",
+            "answer": "từ 380 mm đến 440 mm."
+          },
+          {
+            "identifier": "B",
+            "answer": "từ 380 nm đến 440 nm."
+          },
+          {
+            "identifier": "C",
+            "answer": "từ 380 cm đến 440 cm."
+          },
+          {
+            "identifier": "D",
+            "answer": "từ 380 pm đến 440 pm."
+          }
+        ],
+        "correctAnswer": "B"
+      },
+      
+      {
+        "question": "Bộ phận nào sau đây là một trong ba bộ phận chính của máy quang phổ lăng kính",
+        "answers": [
+          {
+            "identifier": "A",
+            "answer": "Mạch biến điệu."
+          },
+          {
+            "identifier": "B",
+            "answer": "Mạch tách sóng."
+          },
+          {
+            "identifier": "C",
+            "answer": "Pin quang điện."
+          },
+          {
+            "identifier": "D",
+            "answer": "Hệ tán sắc."
+          }
+        ],
+        "correctAnswer": "D"
+      },
+
+      {
+        "question": "Đặt điện áp xoay chiều có tần số góc ω vào hai đầu đoạn mạch mắc nối tiếp gồm điện trở, cuộn cảm thuần có độ tự cảm L và tụ điện có điện dung C. Điều kiện để trong mạch có cộng hưởng là",
+        "answers": [
+          {
+            "identifier": "A",
+            "answer": "ωLC = 1."
+          },
+          {
+            "identifier": "B",
+            "answer": "2ωLC = 1."
+          },
+          {
+            "identifier": "C",
+            "answer": "2(ω^2)LC = 1."
+          },
+          {
+            "identifier": "D",
+            "answer": "(ω^2)LC = 1."
+          }
+        ],
+        "correctAnswer": "D",
+        "solution" : "Mạch có cộng hưởng điện: Z_L=Z_C → ωL=1/ωC → (ω^2)LC=1"
+      },
+
+      {
+        "question": "Để xác định điện dung C của một tụ điện, một học sinh mắc nối tiếp tụ điện này với một điện trở 20 Ω rồi mắc hai đầu đoạn mạch vào một nguồn điện xoay chiều có tần số thay đổi được. Dùng dao động kí điện tử để hiện thị đồng thời đồ thị điện áp giữa hai đầu điện trở và điện áp giữa hai đầu tụ điện (các đường hình sin). Thay đổi tần số của nguồn điện đến khi độ cao của hai đường hình sin trên màn hình dao động kí bằng nhau như hình bên. Biết dao động kí đã được chỉnh thang đo sao cho ứng với mỗi ô vuông trên màn hình thì cạnh nằm ngang là 0,005 s và cạnh thẳng đứng là 5 V. Giá trị của C là",
+        "image": "https://firebasestorage.googleapis.com/v0/b/e-learning-291c1.appspot.com/o/ExamQuestions%2FTHPT2021Code207%2F32.png?alt=media&token=b7466456-85c6-46fd-aa0e-5a7ad926b5ac",
+        "answers": [
+          {
+            "identifier": "A",
+            "answer": "24.10^(-5) F."
+          },
+          {
+            "identifier": "B",
+            "answer": "12.10^(-5) F."
+          },
+          {
+            "identifier": "C",
+            "answer": "6,0.10^(-5) F."
+          },
+          {
+            "identifier": "D",
+            "answer": "3,0.10^(-5) F."
+          }
+        ],
+        "correctAnswer": "A",
+        "solution" : "Từ đồ thị ta thấy T=6.0,005s; do độ cao của hai đường hình sin là như nhau nên UoR=UoC →Z_C=R→1/2πfC=R→T/2πC=R→C=2,387.10^(-4) (F)≈24.10^(-5) (F)"
+      }
+    ]
+  },
+
+
+
+  {
+    "id" : "THPTVL2120777",
+    "description": "Đề thi tốt nghiệp THPT năm 2021 môn Vật lý Bộ GD&ĐT mã đề 20777",
+    "questions": [
+      {
+        "question": "Trong chân không, ánh sáng màu tím có bước sóng nằm trong khoảng",
+        "answers": [
+          {
+            "identifier": "A",
+            "answer": "từ 380 mm đến 440 mm."
+          },
+          {
+            "identifier": "B",
+            "answer": "từ 380 nm đến 440 nm."
+          },
+          {
+            "identifier": "C",
+            "answer": "từ 380 cm đến 440 cm."
+          },
+          {
+            "identifier": "D",
+            "answer": "từ 380 pm đến 440 pm."
+          }
+        ],
+        "correctAnswer": "B"
+      },
+
+      {
+        "question": "Bộ phận nào sau đây là một trong ba bộ phận chính của máy quang phổ lăng kính",
+        "answers": [
+          {
+            "identifier": "A",
+            "answer": "Mạch biến điệu."
+          },
+          {
+            "identifier": "B",
+            "answer": "Mạch tách sóng."
+          },
+          {
+            "identifier": "C",
+            "answer": "Pin quang điện."
+          },
+          {
+            "identifier": "D",
+            "answer": "Hệ tán sắc."
+          }
+        ],
+        "correctAnswer": "D"
+      },
+
+      {
+        "question": "Đặt điện áp xoay chiều có tần số góc ω vào hai đầu đoạn mạch mắc nối tiếp gồm điện trở, cuộn cảm thuần có độ tự cảm L và tụ điện có điện dung C. Điều kiện để trong mạch có cộng hưởng là",
+        "answers": [
+          {
+            "identifier": "A",
+            "answer": "ωLC = 1."
+          },
+          {
+            "identifier": "B",
+            "answer": "2ωLC = 1."
+          },
+          {
+            "identifier": "C",
+            "answer": "2(ω^2)LC = 1."
+          },
+          {
+            "identifier": "D",
+            "answer": "(ω^2)LC = 1."
+          }
+        ],
+        "correctAnswer": "D",
+        "solution" : "Mạch có cộng hưởng điện: Z_L=Z_C → ωL=1/ωC → (ω^2)LC=1"
+      },
+
+      {
+        "question": "Để xác định điện dung C của một tụ điện, một học sinh mắc nối tiếp tụ điện này với một điện trở 20 Ω rồi mắc hai đầu đoạn mạch vào một nguồn điện xoay chiều có tần số thay đổi được. Dùng dao động kí điện tử để hiện thị đồng thời đồ thị điện áp giữa hai đầu điện trở và điện áp giữa hai đầu tụ điện (các đường hình sin). Thay đổi tần số của nguồn điện đến khi độ cao của hai đường hình sin trên màn hình dao động kí bằng nhau như hình bên. Biết dao động kí đã được chỉnh thang đo sao cho ứng với mỗi ô vuông trên màn hình thì cạnh nằm ngang là 0,005 s và cạnh thẳng đứng là 5 V. Giá trị của C là",
+        "image": "https://firebasestorage.googleapis.com/v0/b/e-learning-291c1.appspot.com/o/ExamQuestions%2FTHPT2021Code207%2F32.png?alt=media&token=b7466456-85c6-46fd-aa0e-5a7ad926b5ac",
+        "answers": [
+          {
+            "identifier": "A",
+            "answer": "24.10^(-5) F."
+          },
+          {
+            "identifier": "B",
+            "answer": "12.10^(-5) F."
+          },
+          {
+            "identifier": "C",
+            "answer": "6,0.10^(-5) F."
+          },
+          {
+            "identifier": "D",
+            "answer": "3,0.10^(-5) F."
+          }
+        ],
+        "correctAnswer": "A",
+        "solution" : "Từ đồ thị ta thấy T=6.0,005s; do độ cao của hai đường hình sin là như nhau nên UoR=UoC →Z_C=R→1/2πfC=R→T/2πC=R→C=2,387.10^(-4) (F)≈24.10^(-5) (F)"
+      }
+    ]
+  }
+]

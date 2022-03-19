@@ -1,11 +1,11 @@
 
 
 
-import 'package:e_learning/pdf_view_page.dart';
+import 'package:e_learning/screens/theory/pdf_view_page.dart';
 import 'package:flutter/material.dart';
 
-import 'api/firebase_api.dart';
-import 'models/pdf.dart';
+import '../../api/pdf_api.dart';
+import '../../models/pdf.dart';
 
 class Listfiles extends StatefulWidget {
   const Listfiles({required this.path, Key? key}) : super(key: key);

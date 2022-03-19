@@ -1,0 +1,53 @@
+import 'package:e_learning/api/exam_questions_api.dart';
+import 'package:e_learning/models/exam_questions.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/material.dart';
+
+class ExamQuestionsPage extends StatelessWidget {
+  const ExamQuestionsPage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: FutureBuilder<List<ExamQuestion>>(
+        future: ExamQuestionApi.getExamQuestionsLocally(context),
+        builder: (context, snapshot) {
+          final examQuestions = snapshot.data;
+
+          switch (snapshot.connectionState) {
+            case ConnectionState.waiting:
+              return Center(child: CircularProgressIndicator());
+            default:
+              if (snapshot.hasError)
+                return Center(child: Text(snapshot.error.toString()));
+              else if(examQuestions != null)
+                return buildExamQuestions(examQuestions);
+              else return Text("null");
+          }
+        },
+      ),
+    );
+  }
+
+  Widget buildExamQuestions(List<ExamQuestion> examQuestions) {
+    return ListView.builder(
+      physics: BouncingScrollPhysics(),
+      itemCount: examQuestions.length,
+      itemBuilder: (context, index){
+        final examquestion = examQuestions[index];
+
+        return ListTile(
+          leading: Icon(Icons.book_online_outlined),
+          title: Text('Đề thi số ${index+1}'),
+          subtitle: Text(examquestion.description),
+          onTap: (){
+
+          },
+        );
+      },
+    );
+  }
+}
+
+// reference
+// https://www.youtube.com/watch?v=Rlf5q2EGHzc&ab_channel=JohannesMilke

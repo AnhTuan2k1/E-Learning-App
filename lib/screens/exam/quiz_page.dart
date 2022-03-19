@@ -1,5 +1,6 @@
 
 
+import 'package:e_learning/screens/exam/exam_questions_page.dart';
 import 'package:flutter/material.dart';
 
 class QuizPage extends StatelessWidget {
@@ -10,7 +11,7 @@ class QuizPage extends StatelessWidget {
     return Center(
         child: Padding(
           padding: const EdgeInsets.fromLTRB(0,20,0,0),
-          child: MyList(),
+          child: ExamQuestionsPage(),
         )
     );
   }

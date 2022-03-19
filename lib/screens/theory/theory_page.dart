@@ -1,9 +1,8 @@
-import 'package:e_learning/pdf_view_page.dart';
+
 import 'package:flutter/material.dart';
 
-import 'api/firebase_api.dart';
+import '../../api/pdf_api.dart';
 import 'listfilesPdf_page.dart';
-import 'models/pdf.dart';
 
 class TheoryPage extends StatefulWidget {
   const TheoryPage({Key? key}) : super(key: key);

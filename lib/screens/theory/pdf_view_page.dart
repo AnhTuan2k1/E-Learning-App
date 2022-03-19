@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 
-import 'models/pdf.dart';
+import '../../models/pdf.dart';
 
 class PDFViewerPage extends StatefulWidget {
   const PDFViewerPage(this.pdf, {Key? key}) : super(key: key);
