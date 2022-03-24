@@ -9,6 +9,7 @@ class Question{
   String question;
   List<Answer> answers;
   String correctAnswer;
+  String? selectedAnswer;
 
   @JsonKey(defaultValue: null)
   String? image;

@@ -3,6 +3,8 @@ import 'package:e_learning/models/exam_questions.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
+import 'exam_page.dart';
+
 class ExamQuestionsPage extends StatelessWidget {
   const ExamQuestionsPage({Key? key}) : super(key: key);
 
@@ -12,7 +14,7 @@ class ExamQuestionsPage extends StatelessWidget {
       body: FutureBuilder<List<ExamQuestion>>(
         future: ExamQuestionApi.getExamQuestionsLocally(context),
         builder: (context, snapshot) {
-          final examQuestions = snapshot.data;
+          final List<ExamQuestion>? examQuestions = snapshot.data;
 
           switch (snapshot.connectionState) {
             case ConnectionState.waiting:
@@ -41,7 +43,8 @@ class ExamQuestionsPage extends StatelessWidget {
           title: Text('Đề thi số ${index+1}'),
           subtitle: Text(examquestion.description),
           onTap: (){
-
+            Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) => ExamPage(examQuestion: examquestion)));
           },
         );
       },
