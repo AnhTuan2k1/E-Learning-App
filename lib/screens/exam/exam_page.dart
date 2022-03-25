@@ -1,6 +1,8 @@
 import 'dart:async';
 
 import 'package:e_learning/dialogs/change_question_dialog.dart';
+import 'package:e_learning/dialogs/result_exam_dialog.dart';
+import 'package:e_learning/dialogs/submit_exam_dialog.dart';
 import 'package:e_learning/models/exam_questions.dart';
 import 'package:flutter/material.dart';
 
@@ -19,6 +21,7 @@ class _ExamPageState extends State<ExamPage> {
   final PageController controller = PageController();
   Duration duration = Duration(minutes: 50);
   Timer? timer;
+  bool built = false;
 
   @override
   void dispose() {
@@ -34,7 +37,7 @@ class _ExamPageState extends State<ExamPage> {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
+    Widget w = WillPopScope(
       onWillPop: () => buildStopExamDialog(),
       child: Scaffold(
           appBar: AppBar(
@@ -58,32 +61,54 @@ class _ExamPageState extends State<ExamPage> {
           body: Container(
             color: Colors.white,
             child: Column(children: [
-              Stack(children: [
-                Align(alignment: Alignment.center, child: buildTime()),
-                Align(alignment: Alignment.centerRight,
-                    child: ElevatedButton(onPressed: () {},
-                        child: Text('Nộp bài'),)
-                )
-              ]),
+              buildStateExamPage(),
               Expanded(
-                child: SizedBox(
-                  child: PageView(
-                      controller: controller,
-                      children: widget.examQuestion.questions
-                          .map(
-                            (e) => SingleChildScrollView(
-                              child: Column(children: buildColumn(e)),
-                            ),
-                          )
-                          .toList()),
-                ),
+                child: PageView(
+                    controller: controller,
+                    children: widget.examQuestion.questions
+                        .map(
+                          (e) => SingleChildScrollView(
+                        child: Column(children: buildColumn(e)),
+                      ),
+                    )
+                        .toList()),
               ),
             ]),
           )),
     );
+
+    built = true;
+    return w;
+  }
+
+  Stack buildStateExamPage() {
+    if(widget.examQuestion.submited){
+      return Stack(children: [
+        Align(alignment: Alignment.bottomLeft, child: Container(
+          padding: EdgeInsets.fromLTRB(10, 10, 0, 0),
+            child: Text('Điểm: ${widget.examQuestion.mark.toString()}',
+              style: TextStyle(fontSize: 30)))
+        ),
+        //Align(alignment: Alignment.center, child: buildTime()),
+        Align(alignment: Alignment.centerRight,
+            child: ElevatedButton(onPressed: () => {},
+              child: Text('đã nộp'),)
+        )
+      ]);
+    }
+    else {
+      return Stack(children: [
+        Align(alignment: Alignment.center, child: buildTime()),
+        Align(alignment: Alignment.centerRight,
+            child: ElevatedButton(onPressed: () => handleSubmittingExam(),
+              child: Text('Nộp bài'),)
+        )
+      ]);
+    }
   }
 
   Future<bool> buildStopExamDialog() async {
+    if(widget.examQuestion.submited) return Future.value(true);
     final value = await showDialog<bool>(
         context: context,
         builder: (context) {
@@ -100,13 +125,30 @@ class _ExamPageState extends State<ExamPage> {
         barrierDismissible: false,
         context: context,
         builder: (context) {
-          return ChangeQuestionDialog(questions: questions);
+          return ChangeQuestionDialog(questions: questions, submited: widget.examQuestion.submited);
         }).then((value) => {
       controller.jumpToPage(value ?? 0)
     });
   }
 
+  handleSubmittingExam() async{
+    await showDialog<bool>(
+        context: context,
+        builder: (context) {
+          return const SubmitExamDialog();
+        }).then((value) => {
+      if(value != null){
+        if(value) {
+          setState(() {
+             widget.examQuestion.makeMark();
+          })
+        }
+      }
+    });
+  }
+
   Widget buildTime(){
+    //if(widget.examQuestion.submited) return Text('');
     String twoDigits(int n) => n.toString().padLeft(2, '0');
     final minutes = twoDigits(duration.inMinutes.remainder(60));
     final seconds = twoDigits(duration.inSeconds.remainder(60));
@@ -146,16 +188,25 @@ class _ExamPageState extends State<ExamPage> {
           color: getColor(question, e.identifier),
           child: ListTile(
             title: Text('${e.identifier}. ${e.answer}'),
+            trailing: ShowAnswer(question, e.identifier),
             onTap: () {
-              setState(() {
-                question.selectedAnswer = e.identifier;
-                controller.nextPage(
-                    duration: Duration(milliseconds: 200),
-                    curve: Curves.easeInOutQuart);
-              });
+              if(!widget.examQuestion.submited){
+                setState(() {
+                  question.selectedAnswer = e.identifier;
+                });
+              }
             },
           )),
     )));
+
+    if(widget.examQuestion.submited){
+      if(built){
+        if(controller.page != null) {
+          list.add(ShowSolutionQuestion(controller.page!.toInt()));
+        }
+      }
+    }
+
     return list;
   }
 
@@ -167,6 +218,41 @@ class _ExamPageState extends State<ExamPage> {
     } else {
       return Colors.white;
     }
+  }
+
+  ShowAnswer(Question question, String identifier) {
+    if(widget.examQuestion.submited){
+      if(question.correctAnswer == identifier)
+        return Icon(Icons.check_circle, color: Colors.green);
+      else return Icon(Icons.dangerous, color: Colors.red);
+    }
+  }
+
+  Widget ShowSolutionQuestion(int? index) {
+    if(index != null){
+      if(widget.examQuestion.questions[index].solution != null) {
+        Widget widg = Text('');
+        if (widget.examQuestion.questions[index].solutionImage != null)
+          widg = Image.network(widget.examQuestion.questions[index].solutionImage!);
+        return Container(
+          padding: const EdgeInsets.fromLTRB(15,15,15,15),
+          child: Column(
+            children: [
+              const Text("Lời Giải: ", style: TextStyle(fontSize: 17, color: Colors.black), ),
+              widg,
+              Stack(
+                  children:[
+                    Align(
+                      alignment: Alignment.topLeft,
+                        child: Text(widget.examQuestion.questions[index].solution!))
+                  ]),
+            ],
+          ),
+        );
+      }
+      else return Text('');
+    }
+    else return Text('');
   }
 
 }

@@ -9,9 +9,29 @@ class ExamQuestion {
   String description;
   List<Question> questions;
 
-  ExamQuestion(this.id, this.description, this.questions);
+  @JsonKey(defaultValue: 0)
+  double mark;
+
+  @JsonKey(defaultValue: false)
+  bool submited;
+
+  ExamQuestion(this.id, this.description, this.questions, this.submited, this.mark);
 
 
   factory ExamQuestion.fromJson(Map<String, dynamic> json) => _$ExamQuestionFromJson(json);
   Map<String, dynamic> toJson() => _$ExamQuestionToJson(this);
+
+  double makeMark(){
+    int correctAnswer = 0;
+    questions.forEach((element) {
+      if(element.selectedAnswer != null){
+        if(element.selectedAnswer == element.correctAnswer)
+          correctAnswer++;
+      }
+    });
+
+    mark = 10*correctAnswer/questions.length;
+    submited = true;
+    return mark;
+  }
 }

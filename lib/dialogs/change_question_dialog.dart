@@ -2,12 +2,13 @@ import 'package:e_learning/models/question.dart';
 import 'package:flutter/material.dart';
 
 class ChangeQuestionDialog extends StatelessWidget {
-  const ChangeQuestionDialog({
+  const ChangeQuestionDialog({required this.submited,
     required this.questions,
     Key? key,
   }) : super(key: key);
 
   final List<Question> questions;
+  final bool submited;
 
   @override
   Widget build(BuildContext context) {
@@ -34,15 +35,36 @@ class ChangeQuestionDialog extends StatelessWidget {
         color: getColors(questions[i]),
         child: OutlinedButton(
             onPressed: () => {Navigator.of(context).pop(i)},
-            child: Text('${i + 1}', style: TextStyle(fontSize: 20),)),
+            child: Text('${i + 1}', style: textStyle(questions[i]))),
       ));
     }
 
     return list;
   }
 
+  TextStyle? textStyle(Question question) {
+    Color? color;
+
+    if(submited){
+      color = Colors.white;
+    }
+    else {
+
+    }
+    return TextStyle(fontSize: 20 , color: color);
+  }
+
   getColors(Question question) {
-    if(question.selectedAnswer != null)
-      return Colors.lightBlue[100];
+    if(submited){
+      if(question.selectedAnswer == null)
+        return Colors.red;
+      else if(question.selectedAnswer == question.correctAnswer)
+        return Colors.green;
+      else return Colors.red;
+    }
+    else {
+      if(question.selectedAnswer != null)
+        return Colors.lightBlue[100];
+    }
   }
 }

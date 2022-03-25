@@ -9,6 +9,8 @@ class Question{
   String question;
   List<Answer> answers;
   String correctAnswer;
+
+  @JsonKey(defaultValue: null)
   String? selectedAnswer;
 
   @JsonKey(defaultValue: null)
@@ -17,9 +19,11 @@ class Question{
   @JsonKey(defaultValue: null)
   String? solution;
 
+  @JsonKey(defaultValue: null)
+  String? solutionImage;
 
   Question(this.question, this.answers, this.correctAnswer, this.image,
-      this.solution);
+      this.solution, this.solutionImage);
 
   factory Question.fromJson(Map<String, dynamic> json) => _$QuestionFromJson(json);
   Map<String, dynamic> toJson() => _$QuestionToJson(this);

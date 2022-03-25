@@ -25,7 +25,7 @@
         ],
         "correctAnswer": "B"
       },
-      
+
       {
         "question": "Câu 2. Bộ phận nào sau đây là một trong ba bộ phận chính của máy quang phổ lăng kính",
         "answers": [
@@ -675,7 +675,7 @@
             "answer": "0,85 eV."
           }
         ],
-        "correctAnswer": "B",
+        "correctAnswer": "C",
         "solution" : "ε=-0,85eV-(-13.6)eV=12,75(eV)"
       },
 
@@ -777,6 +777,7 @@
 
       {
         "question": "Câu 34. Đặt điện áp u=60√2 cos(300t+π/3)  Vvào hai đầu đoạn mạch AB như hình bên, trong đó R=170 Ω và điện dung C của tụ điện thay đổi được. Khi C=C_1 thì điện tích của bản tụ điện nối vào N là q=5√2.10^(-4) cos(300t+π/6)  C. Trong các biểu thức, t tính bằng s. Khi C=C_2 thì điện áp hiệu dụng giữa hai đầu R đạt giá trị cực đại, giá trị đó bằng",
+        "image": "https://firebasestorage.googleapis.com/v0/b/e-learning-291c1.appspot.com/o/ExamQuestions%2FTHPT2021Code207%2F34.png?alt=media&token=0916be05-7379-4bdf-975d-3c4ae4388053",
         "answers": [
           {
             "identifier": "A",
@@ -801,6 +802,7 @@
 
       {
         "question": "Câu 35. Dao động của một vật là tổng hợp của hai dao động điều hòa cùng phương có li độ lần lượt là x_1  và x_2. Hình bên là đồ thị biểu diễn sự phụ thuộc của x_1  và x_2 theo thời gian t. Biết độ lớn lực kéo về tác dụng lên vật ở thời điểm t=0,2 slà 0,4 N. Động năng của vật ở thời điểm t=0,4 s là",
+        "image": "https://firebasestorage.googleapis.com/v0/b/e-learning-291c1.appspot.com/o/ExamQuestions%2FTHPT2021Code207%2F35.png?alt=media&token=64417953-6f4f-45d9-8651-d8376aa963e7",
         "answers": [
           {
             "identifier": "A",
@@ -825,6 +827,7 @@
 
       {
         "question": "Câu 36. : Dùng mạch điện như hình bên để tạo ra dao động điện từ. Ban đầu đóng khóa K vào chốt a, khi dòng điện qua nguồn điện ổn định là chuyển khóa K đóng sang chốt b. Biết ξ=5 V,r=1 Ω, R=2 Ω,L=9/10π  mH,C=1/π  μF. Lấy e=1,6.10^(-19)  C. Trong khoảng thời gian 10 μs kể từ thời điểm đóng K vào chốt b, có bao nhiêu electron đã chuyển đến bản tụ điện nối với khóa K?",
+        "image": "https://firebasestorage.googleapis.com/v0/b/e-learning-291c1.appspot.com/o/ExamQuestions%2FTHPT2021Code207%2F36.png?alt=media&token=9937c343-8a73-4e75-a2bb-1f6bb4b15185",
         "answers": [
           {
             "identifier": "A",
@@ -892,11 +895,13 @@
           }
         ],
         "correctAnswer": "A",
+        "solutionImage": "https://firebasestorage.googleapis.com/v0/b/e-learning-291c1.appspot.com/o/ExamQuestions%2FTHPT2021Code207%2F38s.png?alt=media&token=d7ec0013-2786-4605-bdf7-4f4922444079",
         "solution" : "Xét đường cực đại bậc k, ứng với điểm cực đại trên cạnh BC\ngần C nhất; đặt AB=a; theo bài trên BC có 6 cực đại giao thoa\nnên (k+5,5)λ<a<(k+6)λ.(1)\nĐiểm cực tiểu trên BC xa P nhất ứng với k-0,5, gần C nhất\nnên ta có a√2-a≈(k-0,5)λ→a≈(k-0,5)λ/(√2-1) (2)\nTừ (1) và (2) ta có k+5,5<((k-0,5))/(√2-1)<k+6\n\n→4,7<k<5,092; như vậy ta có k=5 →a=(5-0,5)λ/(√2-1)=10,864λ\nVậy ta có AP-BP=√(a^2+BP^2 )-BP=(k+5+0,5)λ=10,5λ→BP=0,370λ \nvà AQ-BQ=√(a^2+BQ^2 )-BQ=(k-0,5)λ=4,5λ→BP=10,864λ =>BQ-BP=10,494λ\n"
       },
 
       {
         "question": "Câu 39. Đặt điện áp xoay chiều có tần số góc ω vào hai đầu đoạn mạch AB như hình bên (H1). Hình H2 là đồ thị biểu diễn sự phụ thuộc của điện áp u_AB giữa hai điểm A và B, và điện áp u_MN giữa hai điểm M và N theo thời gian t. Biết 63RCω=16 và r=18 Ω. Công suất tiêu thụ của đoạn mạch AB là",
+        "image": "https://firebasestorage.googleapis.com/v0/b/e-learning-291c1.appspot.com/o/ExamQuestions%2FTHPT2021Code207%2F39.png?alt=media&token=ddff0c00-f31e-47fc-9a1f-9fa3826930df",
         "answers": [
           {
             "identifier": "A",
@@ -921,6 +926,7 @@
 
       {
         "question": "Câu 40. Hai con lắc lò xo giống hệt nhau được gắn vào điểm G của một giá cố định như hình bên. Trên phương nằm ngang và phương thẳng đứng, các con lắc đang dao động điều hòa cùng biên độ 14 cm, cùng chu kì T nhưng vuông pha với nhau. Gọi F_G là độ lớn hợp lực của các lực do hai lò xo tác dụng lên giá. Biết khoảng thời gian ngắn nhật giữa hai lần mà F_Gbằng trọng lượng của vật nhỏ của mỗi con lắc là T/4. Lấy g=10 m/s^2. Giá trị của T gần nhất với giá trị nào sau đây?",
+        "image": "https://firebasestorage.googleapis.com/v0/b/e-learning-291c1.appspot.com/o/ExamQuestions%2FTHPT2021Code207%2F40.png?alt=media&token=c501a137-d651-45cc-9fb9-1c426b544961",
         "answers": [
           {
             "identifier": "A",

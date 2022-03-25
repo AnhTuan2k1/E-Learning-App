@@ -14,12 +14,15 @@ Question _$QuestionFromJson(Map<String, dynamic> json) => Question(
       json['correctAnswer'] as String,
       json['image'] as String?,
       json['solution'] as String?,
-    );
+      json['solutionImage'] as String?,
+    )..selectedAnswer = json['selectedAnswer'] as String?;
 
 Map<String, dynamic> _$QuestionToJson(Question instance) => <String, dynamic>{
       'question': instance.question,
       'answers': instance.answers.map((e) => e.toJson()).toList(),
       'correctAnswer': instance.correctAnswer,
+      'selectedAnswer': instance.selectedAnswer,
       'image': instance.image,
       'solution': instance.solution,
+      'solutionImage': instance.solutionImage,
     };
