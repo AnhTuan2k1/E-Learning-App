@@ -1,4 +1,5 @@
 import 'package:e_learning/models/pdf.dart';
+import 'package:e_learning/models/video.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 
 class FirebaseApi {
@@ -30,6 +31,21 @@ class FirebaseApi {
 
   static Future<List<String>> _getDownloadLinks(List<Reference> refs) =>
       Future.wait(refs.map((ref) => ref.getDownloadURL()).toList());
+
+  static Future<List<Video>> listAllVideos(String path) async {
+    final ref = FirebaseStorage.instance.ref(path);
+    final result = await ref.listAll();
+
+    final urls = await _getDownloadLinks(result.items);
+
+    List<Video> u = <Video>[];
+    int i = 0;
+    for (var element in result.items) {
+      u.add(Video(element.name, urls[i]) );
+      i++;
+    }
+    return u;
+  }
 }
 
 // reference:

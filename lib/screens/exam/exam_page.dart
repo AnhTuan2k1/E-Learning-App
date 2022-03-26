@@ -121,13 +121,14 @@ class _ExamPageState extends State<ExamPage> {
   }
 
   Future _buildChangeQuestionDialog(List<Question> questions) async {
-    final value = await showDialog<int>(
-        barrierDismissible: false,
+    int? x;
+    await showDialog<int>(
         context: context,
         builder: (context) {
           return ChangeQuestionDialog(questions: questions, submited: widget.examQuestion.submited);
         }).then((value) => {
-      controller.jumpToPage(value ?? 0)
+      x = value ?? controller.page?.toInt(),
+      controller.jumpToPage(x ?? 0)
     });
   }
 
@@ -180,7 +181,7 @@ class _ExamPageState extends State<ExamPage> {
           title: Text(question.question),
         )));
 
-    if (question.image != null) list.add(Image.network(question.image!));
+    if (question.image != null) list.add(Image.network(question.image ?? ''));
 
     list.addAll((question.answers.map(
       (e) => Card(
@@ -202,7 +203,7 @@ class _ExamPageState extends State<ExamPage> {
     if(widget.examQuestion.submited){
       if(built){
         if(controller.page != null) {
-          list.add(ShowSolutionQuestion(controller.page!.toInt()));
+          list.add(ShowSolutionQuestion(controller.page?.toInt()));
         }
       }
     }
@@ -233,7 +234,7 @@ class _ExamPageState extends State<ExamPage> {
       if(widget.examQuestion.questions[index].solution != null) {
         Widget widg = Text('');
         if (widget.examQuestion.questions[index].solutionImage != null)
-          widg = Image.network(widget.examQuestion.questions[index].solutionImage!);
+          widg = Image.network(widget.examQuestion.questions[index].solutionImage ?? '');
         return Container(
           padding: const EdgeInsets.fromLTRB(15,15,15,15),
           child: Column(
@@ -244,7 +245,7 @@ class _ExamPageState extends State<ExamPage> {
                   children:[
                     Align(
                       alignment: Alignment.topLeft,
-                        child: Text(widget.examQuestion.questions[index].solution!))
+                        child: Text(widget.examQuestion.questions[index].solution ?? ''))
                   ]),
             ],
           ),

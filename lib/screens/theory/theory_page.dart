@@ -36,7 +36,7 @@ class _TheoryPageState extends State<TheoryPage> {
               if (snapshot.hasError) {
                 return Center(child: Text(snapshot.error.toString()));
               } else {
-                final directories = snapshot.data!;
+                final directories = snapshot.data ?? <String>[];
 
                 return ListView.builder(
                   padding: const EdgeInsets.all(8),

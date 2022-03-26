@@ -35,7 +35,7 @@ class ChangeQuestionDialog extends StatelessWidget {
         color: getColors(questions[i]),
         child: OutlinedButton(
             onPressed: () => {Navigator.of(context).pop(i)},
-            child: Text('${i + 1}', style: textStyle(questions[i]))),
+            child: FittedBox(child: Text('${i + 1}', style: textStyle(questions[i])))),
       ));
     }
 
