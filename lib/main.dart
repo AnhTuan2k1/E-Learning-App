@@ -2,12 +2,14 @@
 import 'package:firebase_core/firebase_core.dart';
 
 //import navigations
-import 'package:e_learning/screens/main_page.dart';
+import 'package:sciolism_app/screens/main_page.dart';
 
 //import others
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
+
+// --------
 
 
 int initScreen = 0;
@@ -26,16 +28,8 @@ class SciolismApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Grow',
+      title: 'Sciolism',
       debugShowCheckedModeBanner: false,
-      localizationsDelegates: [
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-      ],
-      supportedLocales: [
-        const Locale('en', 'US'), // English
-        const Locale('vn', 'VN'), // VietNam
-      ],
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.white,
         dialogBackgroundColor: Colors.white,

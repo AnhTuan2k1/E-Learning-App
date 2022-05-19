@@ -1,5 +1,5 @@
-import 'package:e_learning/models/pdf.dart';
-import 'package:e_learning/models/video.dart';
+import 'package:sciolism_app/models/pdf.dart';
+import 'package:sciolism_app/models/video.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 
 class FirebaseApi {

@@ -1,6 +1,6 @@
 
 
-import 'package:e_learning/screens/exam/exam_questions_page.dart';
+import 'package:sciolism_app/screens/exam/exam_questions_page.dart';
 import 'package:flutter/material.dart';
 
 class QuizPage extends StatelessWidget {

@@ -1,9 +1,9 @@
 import 'dart:async';
 
-import 'package:e_learning/dialogs/change_question_dialog.dart';
-import 'package:e_learning/dialogs/result_exam_dialog.dart';
-import 'package:e_learning/dialogs/submit_exam_dialog.dart';
-import 'package:e_learning/models/exam_questions.dart';
+import 'package:sciolism_app/dialogs/change_question_dialog.dart';
+import 'package:sciolism_app/dialogs/result_exam_dialog.dart';
+import 'package:sciolism_app/dialogs/submit_exam_dialog.dart';
+import 'package:sciolism_app/models/exam_questions.dart';
 import 'package:flutter/material.dart';
 import 'package:step_progress_indicator/step_progress_indicator.dart';
 

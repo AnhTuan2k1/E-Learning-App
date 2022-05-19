@@ -1,4 +1,4 @@
-name: sciolism App
+name: sciolism_app
 description: E - Learning application to support learning courses, taking quizzes,...
 
 publish_to: 'none' 
@@ -21,10 +21,6 @@ dependencies:
   http: ^0.13.4
   video_player: ^2.3.0
   shared_preferences: ^2.0.15
-  flutter_localizations:
-    sdk: flutter
-  intl: ^0.17.0
-  jiffy: ^5.0.0
   iconsax: ^0.0.8
 
 dev_dependencies:

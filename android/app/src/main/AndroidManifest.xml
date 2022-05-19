@@ -2,7 +2,7 @@
     package="com.example.e_learning">
     <uses-permission android:name="android.permission.INTERNET" />
    <application
-        android:label="e_learning"
+        android:label="Sciolism"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
