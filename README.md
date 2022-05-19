@@ -1,16 +1,10 @@
-# e_learning
+# sciolism_app
+E - Learning application to support learning courses, taking quizzes,...
 
-A new Flutter application.
+User interface: https://www.figma.com/file/HmgIqCEVKJ7Og93i7oALSZ/Sciolism-App?node-id=5%3A253
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<!-- syntax note -->
+<!-- export PATH="$PATH:/Users/Brown.D/Developer/flutter/bin" -->
+<!-- export LANG=en_US.UTF-8 -->
+<!-- ./gradlew --refresh-dependencies -->
+<!-- flutter run --verbose -->
