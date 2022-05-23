@@ -1,4 +1,4 @@
-import 'package:e_learning/models/question.dart';
+import 'package:sciolism_app/models/question.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'exam_questions.g.dart';

@@ -1,5 +1,5 @@
-import 'package:e_learning/api/exam_questions_api.dart';
-import 'package:e_learning/models/exam_questions.dart';
+import 'package:sciolism_app/api/exam_questions_api.dart';
+import 'package:sciolism_app/models/exam_questions.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 

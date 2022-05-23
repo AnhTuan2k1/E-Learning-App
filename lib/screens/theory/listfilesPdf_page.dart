@@ -1,4 +1,4 @@
-import 'package:e_learning/screens/theory/pdf_view_page.dart';
+import 'package:sciolism_app/screens/theory/pdf_view_page.dart';
 import 'package:flutter/material.dart';
 
 import '../../api/pdf_api.dart';

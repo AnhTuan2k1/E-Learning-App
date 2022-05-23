@@ -1,6 +1,6 @@
 
 
-import 'package:e_learning/models/answer.dart';
+import 'package:sciolism_app/models/answer.dart';
 import 'package:json_annotation/json_annotation.dart';
 part 'question.g.dart';
 

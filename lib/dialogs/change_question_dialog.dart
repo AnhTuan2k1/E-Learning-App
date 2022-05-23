@@ -1,4 +1,4 @@
-import 'package:e_learning/models/question.dart';
+import 'package:sciolism_app/models/question.dart';
 import 'package:flutter/material.dart';
 
 class ChangeQuestionDialog extends StatelessWidget {
