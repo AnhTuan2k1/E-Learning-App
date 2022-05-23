@@ -2,7 +2,8 @@
 import 'package:firebase_core/firebase_core.dart';
 
 //import navigations
-import 'package:sciolism_app/screens/main_page.dart';
+import 'package:sciolism_app/screens/authentication/authenticationWrapper.dart';
+import 'package:sciolism_app/screens/onboarding/onboardingWrapper.dart';
 
 //import others
 import 'package:flutter/material.dart';
@@ -40,8 +41,8 @@ class SciolismApp extends StatelessWidget {
       initialRoute:
           initScreen == 0 || initScreen == null ? 'onboarding' : 'auth',
       routes: {
-        'onboarding': (context) => MainPage(),
-        'auth': (context) => MainPage(),
+        'onboarding': (context) => onboardingWrapper(),
+        'auth': (context) => authenticationWrapper(),
       },
     );
   }
