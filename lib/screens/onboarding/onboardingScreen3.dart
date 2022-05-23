@@ -6,7 +6,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 // --------
 
-
 class onboardingScreen3 extends StatelessWidget {
   const onboardingScreen3({Key? key}) : super(key: key);
 

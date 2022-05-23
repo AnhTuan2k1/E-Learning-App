@@ -7,10 +7,10 @@ import 'package:sciolism_app/screens/main_page.dart';
 //import others
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:sciolism_app/screens/onboarding/onboardingWrapper.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 // --------
-
 
 int initScreen = 0;
 
@@ -40,8 +40,8 @@ class SciolismApp extends StatelessWidget {
       initialRoute:
           initScreen == 0 || initScreen == null ? 'onboarding' : 'auth',
       routes: {
-        'onboarding': (context) => MainPage(),
-        'auth': (context) => MainPage(),
+        'onboarding': (context) => onboardingWrapper(),
+        'auth': (context) => onboardingWrapper(),
       },
     );
   }
