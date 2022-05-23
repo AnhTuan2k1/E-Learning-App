@@ -1,9 +1,12 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:sciolism_app/constaint/colors.dart';
+//import constants
+import 'package:sciolism_app/constants/colors.dart';
+
+//import route
+import 'package:sciolism_app/screens/route/route.dart';
 
 //import navigations
 import 'package:sciolism_app/screens/main_page.dart';
+import 'package:sciolism_app/screens/authentication/authenticationWrapper.dart';
 import 'package:sciolism_app/screens/onboarding/onboardingScreen1.dart';
 import 'package:sciolism_app/screens/onboarding/onboardingScreen2.dart';
 import 'package:sciolism_app/screens/onboarding/onboardingScreen3.dart';
@@ -51,61 +54,61 @@ class _onboardingWrapperState extends State<onboardingWrapper> {
             },
           ),
           Container(
-            padding: EdgeInsets.only(left: 24, right: 24),
+            padding: EdgeInsets.only(bottom: 24, left: 24, right: 24),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
+                    //dots
                     Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children:
                             List<Widget>.generate(_pages.length, (int index) {
                           return AnimatedContainer(
                               duration: Duration(milliseconds: 300),
-                              height: 8,
-                              width: (index == _currentPage) ? 24 : 8,
-                              margin: EdgeInsets.symmetric(horizontal: 4),
+                              height: 6,
+                              width: (index == _currentPage) ? 24 : 6,
+                              margin: EdgeInsets.symmetric(horizontal: 3),
                               decoration: (index == _currentPage)
                                   ? BoxDecoration(
-                                      borderRadius: BorderRadius.circular(5),
+                                      borderRadius: BorderRadius.circular(6),
                                       color: black,
                                     )
                                   : BoxDecoration(
-                                      borderRadius: BorderRadius.circular(8),
-                                      color: grey,
+                                      borderRadius: BorderRadius.circular(6),
+                                      color: grey.withOpacity(0.8),
                                     ));
                         })),
                     Spacer(),
+                    //button navigation
                     (_currentPage == (_pages.length - 1))
                         ? Container(
-                            margin: EdgeInsets.only(),
                             child: GestureDetector(
-                              //action navigate to next onboarding screen
-                              onTap: () {
-                                _controller.nextPage(
-                                    duration: Duration(milliseconds: 800),
-                                    curve: Curves.easeInOutQuint);
-                              },
-                              child: AnimatedContainer(
-                                  alignment: Alignment.center,
-                                  duration: Duration(milliseconds: 300),
-                                  height: 54,
-                                  width: 220,
-                                  decoration: BoxDecoration(
-                                    color: black,
-                                    borderRadius: BorderRadius.circular(4),
-                                  ),
-                                  child: Text(
-                                    "Thử ngay miễn phí",
-                                    style: TextStyle(
-                                        color: Color(0xFFFFFFFF),
-                                        fontFamily: 'Poppins',
-                                        fontWeight: FontWeight.w600,
-                                        fontSize: 18),
-                                  )),
-                            ))
+                            //action navigate to next onboarding screen
+                            onTap: () {
+                              //  Navigator.push(context, MaterialPageRoute(builder: (context) => authenticationWrapper()));
+                              Navigator.of(context).push(createRoute("authentication"));
+                            },
+                            child: AnimatedContainer(
+                                alignment: Alignment.center,
+                                duration: Duration(milliseconds: 300),
+                                height: 40,
+                                width: 168,
+                                decoration: BoxDecoration(
+                                  color: black,
+                                  borderRadius: BorderRadius.circular(4),
+                                ),
+                                child: Text(
+                                  "Thử ngay miễn phí",
+                                  style: TextStyle(
+                                      color: white2,
+                                      fontFamily: 'Roboto',
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 12),
+                                )),
+                          ))
                         : Container(
                             child: GestureDetector(
                             //action navigate to next onboarding screen
@@ -117,8 +120,8 @@ class _onboardingWrapperState extends State<onboardingWrapper> {
                             child: AnimatedContainer(
                                 alignment: Alignment.center,
                                 duration: Duration(milliseconds: 300),
-                                height: 54,
-                                width: 120,
+                                height: 40,
+                                width: 117,
                                 decoration: BoxDecoration(
                                   color: black,
                                   borderRadius: BorderRadius.circular(4),
@@ -126,36 +129,14 @@ class _onboardingWrapperState extends State<onboardingWrapper> {
                                 child: Text(
                                   "Tiếp theo",
                                   style: TextStyle(
-                                      color: Color(0xFFFFFFFF),
-                                      fontFamily: 'Poppins',
+                                      color: white2,
+                                      fontFamily: 'Roboto',
                                       fontWeight: FontWeight.w600,
-                                      fontSize: 18),
+                                      fontSize: 12),
                                 )),
                           )),
                   ],
                 ),
-                //button navigation
-
-                //button close
-                Container(
-                  alignment: Alignment.topCenter,
-                  child: (_currentPage != _pages.length - 1)
-                      ? GestureDetector(
-                          onTap: () {
-                            _controller.animateToPage(_pages.length - 1,
-                                duration: Duration(milliseconds: 400),
-                                curve: Curves.linear);
-                          },
-                          child: Container(
-                              // child: SvgPicture.asset(outlineClose,
-                              //     height: 40, width: 40),
-                              ),
-                        )
-                      : Container(
-                          child: Text(""),
-                        ),
-                ),
-                SizedBox(height: 24),
               ],
             ),
           )

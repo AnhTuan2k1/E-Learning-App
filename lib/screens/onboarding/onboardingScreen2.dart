@@ -1,12 +1,16 @@
+//import constaint
+import 'package:sciolism_app/constants/colors.dart';
+import 'package:sciolism_app/constants/images.dart';
+
 //import others
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:sciolism_app/constaint/colors.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 // --------
+
 
 class onboardingScreen2 extends StatefulWidget {
   const onboardingScreen2({Key? key}) : super(key: key);

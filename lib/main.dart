@@ -42,7 +42,7 @@ class SciolismApp extends StatelessWidget {
           initScreen == 0 || initScreen == null ? 'onboarding' : 'auth',
       routes: {
         'onboarding': (context) => onboardingWrapper(),
-        'auth': (context) => authenticationWrapper(),
+        'auth': (context) => onboardingWrapper(),
       },
     );
   }
