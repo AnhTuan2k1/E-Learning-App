@@ -8,10 +8,10 @@ import 'package:sciolism_app/screens/onboarding/onboardingWrapper.dart';
 //import others
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:sciolism_app/screens/onboarding/onboardingWrapper.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 // --------
-
 
 int initScreen = 0;
 
