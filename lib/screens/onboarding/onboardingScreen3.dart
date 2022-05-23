@@ -1,7 +1,15 @@
+//import constaint
+import 'package:sciolism_app/constants/colors.dart';
+import 'package:sciolism_app/constants/images.dart';
+
+//import route
+import 'package:sciolism_app/screens/route/route.dart';
+
 //import others
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 // --------
@@ -15,61 +23,56 @@ class onboardingScreen3 extends StatelessWidget {
     return AnnotatedRegion(
       value: SystemUiOverlayStyle(
           statusBarBrightness: Brightness.dark,
-          statusBarIconBrightness: Brightness.light,
-          statusBarColor: Colors.transparent),
+          statusBarIconBrightness: Brightness.dark,
+          statusBarColor: transparent),
       child: Scaffold(
         body: Container(
-          padding: EdgeInsets.all(38),
-          // decoration: BoxDecoration(
-          //   image: DecorationImage(
-          //       image: AssetImage(backgroundOnboarding), fit: BoxFit.cover),
-          // ),
+          margin: EdgeInsets.only(top: 48 + 56, left: 0, right: 0),
           child: Column(
             children: [
-              SizedBox(height: 48),
               Container(
+                height: 327,
+                width: 393,
                 alignment: Alignment.center,
-                // child: Image.asset(obDocumentFile, scale: 1),
+                child: Image.asset(imageOnboarding3, scale: 1),
               ),
-              SizedBox(height: 32),
-              Container(
-                // padding: EdgeInsets.only(right: 32),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                        alignment: Alignment.center,
-                        child: Text(
-                          'Team up without' + '\n' + 'the chaos',
-                          style: TextStyle(
-                            fontFamily: 'Poppins',
-                            fontSize: 32,
-                            color: Color(0xFFFFFFFF),
-                            fontWeight: FontWeight.w600,
-                          ),
-                          textAlign: TextAlign.center,
-                        )),
-                    SizedBox(height: 8),
-                    Container(
-                        alignment: Alignment.center,
-                        child: Text(
-                          'Team up without the chaos.' +
-                              '\n' +
-                              'Connect your teams, projects, and' +
-                              '\n' +
-                              'docs in Grow - so you can bust silos' +
-                              '\n' +
-                              'and move as one.',
-                          style: TextStyle(
-                              fontFamily: 'Poppins',
-                              fontSize: 16,
-                              color: Color(0xFFFFFFFF),
-                              fontWeight: FontWeight.w400,
-                              height: 1.6),
-                          textAlign: TextAlign.center,
-                        )),
-                  ],
-                ),
+              SizedBox(height: 54),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Container(
+                      padding: EdgeInsets.zero,
+                      width: 393 - 48,
+                      child: Text(
+                        'Được nhiều doanh nhân' +
+                            '\n' +
+                            'thành đạt Thế Giới sử dụng.',
+                        style: TextStyle(
+                          fontFamily: 'Roboto',
+                          height: 1.4,
+                          letterSpacing: 0.2,
+                          fontSize: 24,
+                          color: black1,
+                          fontWeight: FontWeight.w600,
+                        ),
+                        textAlign: TextAlign.left,
+                      )),
+                  SizedBox(height: 16),
+                  Container(
+                      width: 393 - 48,
+                      child: Text(
+                        'Tìm hiểu cách mà những doanh nhân thành đạt trên Thế Giới sử dụng Sciolism để học tập, làm việc nhằm phát triển bản thân.',
+                        style: TextStyle(
+                            fontFamily: 'Roboto',
+                            height: 1.6,
+                            letterSpacing: 0.2,
+                            fontSize: 14,
+                            color: grey1,
+                            fontWeight: FontWeight.w400),
+                        textAlign: TextAlign.justify,
+                      )),
+                ],
               ),
             ],
           ),

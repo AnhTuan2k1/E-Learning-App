@@ -36,14 +36,16 @@ dev_dependencies:
 
 flutter_native_splash:
   color: "#ffffff"
-  image: assets/e_mc2.png
+  image: assets/images/splash/splash.png
 
 flutter:
 
   uses-material-design: true
   assets:
     - assets/json/
-    - assets/images/
+    - assets/images/splash/
+    - assets/images/onboarding/
+    - assets/images/authentication/
 
   fonts:
     - family: MsMadi

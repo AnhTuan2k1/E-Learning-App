@@ -74,11 +74,11 @@ class _onboardingWrapperState extends State<onboardingWrapper> {
                               decoration: (index == _currentPage)
                                   ? BoxDecoration(
                                       borderRadius: BorderRadius.circular(6),
-                                      color: black,
+                                      color: black1,
                                     )
                                   : BoxDecoration(
                                       borderRadius: BorderRadius.circular(6),
-                                      color: grey.withOpacity(0.8),
+                                      color: grey1.withOpacity(0.8),
                                     ));
                         })),
                     Spacer(),
@@ -86,9 +86,8 @@ class _onboardingWrapperState extends State<onboardingWrapper> {
                     (_currentPage == (_pages.length - 1))
                         ? Container(
                             child: GestureDetector(
-                            //action navigate to next onboarding screen
+                            //action navigate to authentication screen
                             onTap: () {
-                              //  Navigator.push(context, MaterialPageRoute(builder: (context) => authenticationWrapper()));
                               Navigator.of(context).push(createRoute("authentication"));
                             },
                             child: AnimatedContainer(
@@ -97,7 +96,7 @@ class _onboardingWrapperState extends State<onboardingWrapper> {
                                 height: 40,
                                 width: 168,
                                 decoration: BoxDecoration(
-                                  color: black,
+                                  color: black1,
                                   borderRadius: BorderRadius.circular(4),
                                 ),
                                 child: Text(
@@ -123,7 +122,7 @@ class _onboardingWrapperState extends State<onboardingWrapper> {
                                 height: 40,
                                 width: 117,
                                 decoration: BoxDecoration(
-                                  color: black,
+                                  color: black1,
                                   borderRadius: BorderRadius.circular(4),
                                 ),
                                 child: Text(
