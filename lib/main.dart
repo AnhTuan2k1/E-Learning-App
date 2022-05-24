@@ -1,14 +1,13 @@
 //import database
 import 'package:firebase_core/firebase_core.dart';
 
-//import navigations
+//import views
 import 'package:sciolism_app/screens/authentication/authenticationWrapper.dart';
 import 'package:sciolism_app/screens/onboarding/onboardingWrapper.dart';
 
 //import others
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:sciolism_app/screens/onboarding/onboardingWrapper.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 // --------

@@ -3,6 +3,9 @@ import 'package:sciolism_app/screens/main_page.dart';
 import 'package:sciolism_app/screens/authentication/signInScreen.dart';
 import 'package:sciolism_app/screens/authentication/signUpScreen.dart';
 import 'package:sciolism_app/screens/authentication/authenticationWrapper.dart';
+import 'package:sciolism_app/screens/authentication/forgotPassword.dart';
+import 'package:sciolism_app/screens/authentication/instructionManual.dart';
+import 'package:sciolism_app/screens/authentication/verificationOTPCode.dart';
 import 'package:sciolism_app/screens/onboarding/onboardingScreen1.dart';
 import 'package:sciolism_app/screens/onboarding/onboardingScreen2.dart';
 import 'package:sciolism_app/screens/onboarding/onboardingScreen3.dart';
@@ -10,6 +13,7 @@ import 'package:sciolism_app/screens/onboarding/onboardingScreen3.dart';
 //import others
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:sciolism_app/screens/profile/termCondition.dart';
 
 // --------
 
@@ -24,19 +28,22 @@ Route createRoute(nameRoute) {
           return signInScreen();
 
         case "signUp":
-          return signInScreen();
+          return signUpScreen();
         
         case "forgotPassword":
-          return signInScreen();
+          return forgotPasswordScreen();
 
         case "instruction":
-          return signInScreen();
+          return instructionManual();
 
         case "terms":
-          return signInScreen();
+          return termCondition();
 
         case "verification":
-          return signInScreen();
+          return verificationOTPCode();
+
+        case "main":
+          return MainPage();
       }
       return nameRoute;
     },

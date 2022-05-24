@@ -127,57 +127,57 @@ class _authenticationWrapperState extends State<authenticationWrapper> {
                   ],
                 ),
                 SizedBox(height: 40),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                        padding: EdgeInsets.symmetric(horizontal: 20),
-                        child: GestureDetector(
-                          //action navigate to sign in with facebook screen
-                          onTap: () {
-                            print("luc lam thi xoa dong nay nha bà Nhất!");
-                          },
-                          child: AnimatedContainer(
-                            width: 24,
-                            height: 24,
-                            alignment: Alignment.center,
-                            duration: Duration(milliseconds: 300),
-                            child: Image.asset(facebookIcon, scale: 1),
-                          ),
-                        )),
-                    Container(
-                        padding: EdgeInsets.symmetric(horizontal: 20),
-                        child: GestureDetector(
-                          //action navigate to sign in with twitter screen
-                          onTap: () {
-                            print("luc lam thi xoa dong nay nha bà Nhất!");
-                          },
-                          child: AnimatedContainer(
-                            width: 24,
-                            height: 24,
-                            alignment: Alignment.center,
-                            duration: Duration(milliseconds: 300),
-                            child: Image.asset(twitterIcon, scale: 1),
-                          ),
-                        )),
-                    Container(
-                        padding: EdgeInsets.symmetric(horizontal: 20),
-                        child: GestureDetector(
-                          //action navigate to sign in with google screen
-                          onTap: () {
-                            print("luc lam thi xoa dong nay nha bà Nhất!");
-                          },
-                          child: AnimatedContainer(
-                            width: 24,
-                            height: 24,
-                            alignment: Alignment.center,
-                            duration: Duration(milliseconds: 300),
-                            child: Image.asset(googleIcon, scale: 1),
-                          ),
-                        )),
-                  ],
-                )
+                // Row(
+                //   mainAxisAlignment: MainAxisAlignment.center,
+                //   crossAxisAlignment: CrossAxisAlignment.center,
+                //   children: [
+                //     Container(
+                //         padding: EdgeInsets.symmetric(horizontal: 20),
+                //         child: GestureDetector(
+                //           //action navigate to sign in with facebook screen
+                //           onTap: () {
+                //             print("luc lam thi xoa dong nay nha bà Nhất!");
+                //           },
+                //           child: AnimatedContainer(
+                //             width: 24,
+                //             height: 24,
+                //             alignment: Alignment.center,
+                //             duration: Duration(milliseconds: 300),
+                //             child: Image.asset(facebookIcon, scale: 1),
+                //           ),
+                //         )),
+                //     Container(
+                //         padding: EdgeInsets.symmetric(horizontal: 20),
+                //         child: GestureDetector(
+                //           //action navigate to sign in with twitter screen
+                //           onTap: () {
+                //             print("luc lam thi xoa dong nay nha bà Nhất!");
+                //           },
+                //           child: AnimatedContainer(
+                //             width: 24,
+                //             height: 24,
+                //             alignment: Alignment.center,
+                //             duration: Duration(milliseconds: 300),
+                //             child: Image.asset(twitterIcon, scale: 1),
+                //           ),
+                //         )),
+                //     Container(
+                //         padding: EdgeInsets.symmetric(horizontal: 20),
+                //         child: GestureDetector(
+                //           //action navigate to sign in with google screen
+                //           onTap: () {
+                //             print("luc lam thi xoa dong nay nha bà Nhất!");
+                //           },
+                //           child: AnimatedContainer(
+                //             width: 24,
+                //             height: 24,
+                //             alignment: Alignment.center,
+                //             duration: Duration(milliseconds: 300),
+                //             child: Image.asset(googleIcon, scale: 1),
+                //           ),
+                //         )),
+                //   ],
+                // )
               ],
             ),
           ),

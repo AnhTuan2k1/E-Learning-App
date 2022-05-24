@@ -4,9 +4,7 @@ import 'package:sciolism_app/constants/colors.dart';
 //import route
 import 'package:sciolism_app/screens/route/route.dart';
 
-//import navigations
-import 'package:sciolism_app/screens/main_page.dart';
-import 'package:sciolism_app/screens/authentication/authenticationWrapper.dart';
+//import views
 import 'package:sciolism_app/screens/onboarding/onboardingScreen1.dart';
 import 'package:sciolism_app/screens/onboarding/onboardingScreen2.dart';
 import 'package:sciolism_app/screens/onboarding/onboardingScreen3.dart';

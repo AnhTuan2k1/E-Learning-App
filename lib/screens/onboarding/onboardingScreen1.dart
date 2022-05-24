@@ -34,7 +34,8 @@ class onboardingScreen1 extends StatelessWidget {
                 onTap: () {
                   Navigator.of(context).push(createRoute("authentication"));
                 },
-                child: Container(
+                child: AnimatedContainer(
+                  duration: Duration(milliseconds: 300),
                   alignment: Alignment.topRight,
                   child: Container(
                     width: 40,
