@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:sciolism_app/dialogs/change_question_dialog.dart';
 import 'package:sciolism_app/dialogs/result_exam_dialog.dart';
 import 'package:sciolism_app/dialogs/submit_exam_dialog.dart';
@@ -12,8 +13,10 @@ import '../../dialogs/submit_exam_timeout_dialog.dart';
 import '../../models/question.dart';
 
 class ExamPage extends StatefulWidget {
-  const ExamPage({required this.examQuestion, Key? key}) : super(key: key);
+  const ExamPage({required this.examQuestion, required this.uid, Key? key})
+      : super(key: key);
   final ExamQuestion examQuestion;
+  final String uid;
 
   @override
   State<ExamPage> createState() => _ExamPageState();
@@ -21,7 +24,7 @@ class ExamPage extends StatefulWidget {
 
 class _ExamPageState extends State<ExamPage> {
   final PageController controller = PageController();
-  Duration duration = Duration(seconds: 6);
+  Duration duration = Duration(minutes: 45);
   Timer? timer;
   bool built = false;
   bool timeout = false;
@@ -149,11 +152,42 @@ class _ExamPageState extends State<ExamPage> {
             });
   }
 
+  DateTime selectDate = DateTime.now();
   handleSubmittingExam() async {
     await showDialog<bool>(
         context: context,
         builder: (context) {
           return const SubmitExamDialog();
+        }).then((value) => {
+          if (value != null)
+            {
+              if (value)
+                {
+                  setState(() {
+                    widget.examQuestion.makeMark();
+                    FirebaseFirestore.instance.collection("marks").add({
+                      'id': '',
+                      'uid': widget.uid,
+                      'examName': '1',
+                      'timeSubmit': selectDate,
+                      'mark': widget.examQuestion.makeMark(),
+                    }).then((value) => FirebaseFirestore.instance
+                        .collection("marks")
+                        .doc(value.id)
+                        .update({'id': value.id}));
+                  })
+                }
+            }
+        });
+  }
+
+  handleSubmittingExamTimeout() async {
+    timeout = true;
+    await showDialog<bool>(
+        barrierDismissible: false,
+        context: context,
+        builder: (context) {
+          return const SubmitExamTimeoutDialog();
         }).then((value) => {
           if (value != null)
             {
@@ -167,26 +201,6 @@ class _ExamPageState extends State<ExamPage> {
         });
   }
 
-  handleSubmittingExamTimeout() async{
-    timeout = true;
-    await showDialog<bool>(
-        barrierDismissible: false,
-        context: context,
-        builder: (context) {
-          return const SubmitExamTimeoutDialog();
-        }).then((value) => {
-      if (value != null)
-        {
-          if (value)
-            {
-              setState(() {
-                widget.examQuestion.makeMark();
-              })
-            }
-        }
-    });
-  }
-
   Widget buildTime() {
     //if(widget.examQuestion.submited) return Text('');
     String twoDigits(int n) => n.toString().padLeft(2, '0');
@@ -195,27 +209,24 @@ class _ExamPageState extends State<ExamPage> {
     return SizedBox(
       width: 70,
       height: 70,
-      child: Stack(
-          alignment: AlignmentDirectional.center,
-          children:[
-            FittedBox(
-              child: Text(
-                '$minutes:$seconds',
-                style: TextStyle(fontSize: 15),
-              ),
-            ),
-            CircularStepProgressIndicator(
-              circularDirection: CircularDirection.counterclockwise,
-              totalSteps: 6,
-              currentStep: duration.inSeconds + duration.inMinutes*60,
-              selectedColor: Colors.greenAccent,
-              unselectedColor: Colors.grey[200],
-              padding: 0,
-              selectedStepSize: 9.0,
-              roundedCap: (_, __) => true,
-            ),
-          ]
-      ),
+      child: Stack(alignment: AlignmentDirectional.center, children: [
+        FittedBox(
+          child: Text(
+            '$minutes:$seconds',
+            style: TextStyle(fontSize: 15),
+          ),
+        ),
+        CircularStepProgressIndicator(
+          circularDirection: CircularDirection.counterclockwise,
+          totalSteps: 6,
+          currentStep: duration.inSeconds + duration.inMinutes * 60,
+          selectedColor: Colors.greenAccent,
+          unselectedColor: Colors.grey[200],
+          padding: 0,
+          selectedStepSize: 9.0,
+          roundedCap: (_, __) => true,
+        ),
+      ]),
     );
   }
 
@@ -225,10 +236,11 @@ class _ExamPageState extends State<ExamPage> {
 
   subtractTime() {
     int time = duration.inMinutes + duration.inSeconds;
-    if (!timeout && time == 0 && !widget.examQuestion.submited) handleSubmittingExamTimeout();
+    if (!timeout && time == 0 && !widget.examQuestion.submited)
+      handleSubmittingExamTimeout();
     final subtractSeconds = -1;
     if (!mounted) return;
-    if(time == 0) return;
+    if (time == 0) return;
     setState(() {
       final seconds = duration.inSeconds + subtractSeconds;
       duration = Duration(seconds: seconds);
@@ -237,32 +249,35 @@ class _ExamPageState extends State<ExamPage> {
 
   buildColumn(Question question) {
     List<Widget> list = <Widget>[];
-    list.add(Card(
-        elevation: 0.0,
-        color: Colors.white,
-        child: Container(
-          width: double.infinity,
-          padding: const EdgeInsets.all(20.0),
-          margin: const EdgeInsets.all(7.0),
-          decoration: const BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.all(Radius.circular(10.0)),
-              boxShadow: [
-                BoxShadow(
-                    blurRadius: 5.0,
-                    color: Colors.black,
-                    offset: Offset(1, 3))
-              ] // Make rounded corner of border
-          ),
-          child: Column(
-            children:[
-              Text(question.question,
+    list.add(
+      Card(
+          elevation: 0.0,
+          color: Colors.white,
+          child: Container(
+            width: double.infinity,
+            padding: const EdgeInsets.all(20.0),
+            margin: const EdgeInsets.all(7.0),
+            decoration: const BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                boxShadow: [
+                  BoxShadow(
+                      blurRadius: 5.0,
+                      color: Colors.black,
+                      offset: Offset(1, 3))
+                ] // Make rounded corner of border
+                ),
+            child: Column(children: [
+              Text(
+                question.question,
                 style: TextStyle(fontSize: 15),
               ),
-              if (question.image != null) ...[Image.network(question.image ?? '')],
-            ]
-          ),
-        )),);
+              if (question.image != null) ...[
+                Image.network(question.image ?? '')
+              ],
+            ]),
+          )),
+    );
 
     list.add(SizedBox(
       height: 20,
@@ -322,7 +337,7 @@ class _ExamPageState extends State<ExamPage> {
       if (round) return Colors.black26;
       return Colors.white;
     } else if (question.selectedAnswer == identifier) {
-      if (round) return Theme.of(context).primaryColor;
+      if (round) return Colors.greenAccent;
       return Theme.of(context).secondaryHeaderColor;
     } else {
       if (round) return Colors.black26;

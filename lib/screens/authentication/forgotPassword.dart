@@ -1,6 +1,7 @@
 //import constaint
 import 'package:sciolism_app/constants/colors.dart';
 import 'package:sciolism_app/constants/images.dart';
+import 'package:sciolism_app/screens/authentication/verificationOTPCode.dart';
 
 //import route
 import 'package:sciolism_app/screens/route/route.dart';
@@ -12,7 +13,6 @@ import 'package:iconsax/iconsax.dart';
 import 'package:flutter/services.dart';
 
 // --------
-
 
 class forgotPasswordScreen extends StatefulWidget {
   const forgotPasswordScreen({Key? key}) : super(key: key);
@@ -70,57 +70,55 @@ class _forgotPasswordScreenState extends State<forgotPasswordScreen> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Container(
-                      padding: EdgeInsets.zero,
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          Text(
-                            'Quên mật khẩu',
-                            style: TextStyle(
-                              fontFamily: 'Roboto',
-                              // height: 1.4,
-                              letterSpacing: 0.2,
-                              fontSize: 32,
-                              color: black1,
-                              fontWeight: FontWeight.w600,
+                        padding: EdgeInsets.zero,
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            Text(
+                              'Quên mật khẩu',
+                              style: TextStyle(
+                                fontFamily: 'Roboto',
+                                // height: 1.4,
+                                letterSpacing: 0.2,
+                                fontSize: 32,
+                                color: black1,
+                                fontWeight: FontWeight.w600,
+                              ),
+                              textAlign: TextAlign.left,
                             ),
-                            textAlign: TextAlign.left,
-                          ),
-                          SizedBox(width: 8),
-                          Container(
-                            margin: EdgeInsets.only(bottom: 8),
-                            width: 8,
-                            height: 8,
-                            decoration: BoxDecoration(
-                              color: black1,
-                              shape: BoxShape.circle,
-                            ),
-                          )
-                        ],
-                      )
-                    ),
+                            SizedBox(width: 8),
+                            Container(
+                              margin: EdgeInsets.only(bottom: 8),
+                              width: 8,
+                              height: 8,
+                              decoration: BoxDecoration(
+                                color: black1,
+                                shape: BoxShape.circle,
+                              ),
+                            )
+                          ],
+                        )),
                     SizedBox(height: 16),
                     Container(
-                      width: 393 - 48,
-                      child: Text(
-                        'Để có thể lấy lại mật khẩu, hãy nhập tài khoản Email, chúng tôi sẽ gửi cho bạn 1 mã xác thực!',
-                        style: TextStyle(
-                            fontFamily: 'Roboto',
-                            height: 1.6,
-                            letterSpacing: 0.2,
-                            fontSize: 14,
-                            color: grey1,
-                            fontWeight: FontWeight.w400),
-                        textAlign: TextAlign.justify,
-                      )
-                    ),
+                        width: 393 - 48,
+                        child: Text(
+                          'Để có thể lấy lại mật khẩu, hãy nhập tài khoản Email, chúng tôi sẽ gửi cho bạn 1 mã xác thực!',
+                          style: TextStyle(
+                              fontFamily: 'Roboto',
+                              height: 1.6,
+                              letterSpacing: 0.2,
+                              fontSize: 14,
+                              color: grey1,
+                              fontWeight: FontWeight.w400),
+                          textAlign: TextAlign.justify,
+                        )),
                   ],
                 ),
-		SizedBox(height: 40 + 8),
-		Container(
+                SizedBox(height: 40 + 8),
+                Container(
                   alignment: Alignment.center,
                   child: Image.asset(handSecurity, scale: 4),
-              	),
+                ),
                 SizedBox(height: 40 + 8),
                 Container(
                   child: Column(
@@ -146,7 +144,8 @@ class _forgotPasswordScreenState extends State<forgotPasswordScreen> {
                           height: 42,
                           decoration: BoxDecoration(
                             color: white2.withOpacity(0.64),
-                            border: Border.all(width: 0.5, color: grey1.withOpacity(0.32)),
+                            border: Border.all(
+                                width: 0.5, color: grey1.withOpacity(0.32)),
                             borderRadius: BorderRadius.circular(4),
                             boxShadow: [
                               BoxShadow(
@@ -172,7 +171,8 @@ class _forgotPasswordScreenState extends State<forgotPasswordScreen> {
                                 fontWeight: FontWeight.w400,
                               ),
                               decoration: InputDecoration(
-                                contentPadding: EdgeInsets.only(left: 16, right: 16),
+                                contentPadding:
+                                    EdgeInsets.only(left: 16, right: 16),
                                 hintStyle: TextStyle(
                                   fontFamily: 'Roboto',
                                   // height: 1.4,
@@ -186,8 +186,7 @@ class _forgotPasswordScreenState extends State<forgotPasswordScreen> {
                                 fillColor: white2.withOpacity(0.64),
                                 focusedBorder: OutlineInputBorder(
                                   borderSide: const BorderSide(
-                                    color: black1, width: 0.5
-                                  ),
+                                      color: black1, width: 0.5),
                                   borderRadius: BorderRadius.circular(4),
                                 ),
                                 border: OutlineInputBorder(
@@ -199,8 +198,7 @@ class _forgotPasswordScreenState extends State<forgotPasswordScreen> {
                                   fontSize: 0,
                                   height: 0,
                                 ),
-                              )
-                          ),
+                              )),
                         ),
                       ),
                     ],
@@ -211,8 +209,13 @@ class _forgotPasswordScreenState extends State<forgotPasswordScreen> {
                     child: GestureDetector(
                   //action navigate to sign in screen
                   onTap: () {
-                    print("luc lam thi xoa dong nay nha bà Nhất!");
                     Navigator.of(context).push(createRoute("verification"));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => verificationOTPCode(
+                                  email: emailController.text,
+                                )));
                   },
                   child: AnimatedContainer(
                       alignment: Alignment.center,
@@ -234,33 +237,29 @@ class _forgotPasswordScreenState extends State<forgotPasswordScreen> {
                 )),
                 SizedBox(height: 40),
                 Container(
-                      child: GestureDetector(
-                        //action navigate to instruction manual screen
-                        onTap: () {
-                          Navigator.of(context).push(createRoute("instruction"));
-                        },
-                        child: AnimatedContainer(
-                          alignment: Alignment.center,
-                          duration: Duration(milliseconds: 300),
-                          child: Text(
-                            "Cần trợ giúp?",
-                            style: TextStyle(
-                              color: black1,
-                              fontFamily: 'Roboto',
-                              // height: 1.4,
-                              letterSpacing: 0.2,
-                              fontWeight: FontWeight.w500,
-                              fontSize: 12
-                            ),
-                            textAlign: TextAlign.center,
-                          )
-                        ),
-                      )
-                    ),
+                    child: GestureDetector(
+                  //action navigate to instruction manual screen
+                  onTap: () {
+                    Navigator.of(context).push(createRoute("instruction"));
+                  },
+                  child: AnimatedContainer(
+                      alignment: Alignment.center,
+                      duration: Duration(milliseconds: 300),
+                      child: Text(
+                        "Cần trợ giúp?",
+                        style: TextStyle(
+                            color: black1,
+                            fontFamily: 'Roboto',
+                            // height: 1.4,
+                            letterSpacing: 0.2,
+                            fontWeight: FontWeight.w500,
+                            fontSize: 12),
+                        textAlign: TextAlign.center,
+                      )),
+                )),
               ],
             ),
           ),
-        )
-    );
+        ));
   }
 }

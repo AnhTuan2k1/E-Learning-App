@@ -1,6 +1,8 @@
 //import constaint
+import 'package:sciolism_app/api/firebase_api.dart';
 import 'package:sciolism_app/constants/colors.dart';
 import 'package:sciolism_app/constants/images.dart';
+import 'package:sciolism_app/screens/authentication/forgotPassword.dart';
 
 //import route
 import 'package:sciolism_app/screens/route/route.dart';
@@ -41,8 +43,7 @@ class _signInScreenState extends State<signInScreen> {
             height: MediaQuery.of(context).size.height,
             decoration: BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage(signInBackground),
-                  fit: BoxFit.cover),
+                  image: AssetImage(signInBackground), fit: BoxFit.cover),
             ),
             padding: EdgeInsets.only(left: 24, right: 24, top: 48, bottom: 40),
             child: Column(
@@ -72,50 +73,48 @@ class _signInScreenState extends State<signInScreen> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Container(
-                      padding: EdgeInsets.zero,
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          Text(
-                            'Đăng nhập',
-                            style: TextStyle(
-                              fontFamily: 'Roboto',
-                              // height: 1.4,
-                              letterSpacing: 0.2,
-                              fontSize: 32,
-                              color: black1,
-                              fontWeight: FontWeight.w600,
+                        padding: EdgeInsets.zero,
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            Text(
+                              'Đăng nhập',
+                              style: TextStyle(
+                                fontFamily: 'Roboto',
+                                // height: 1.4,
+                                letterSpacing: 0.2,
+                                fontSize: 32,
+                                color: black1,
+                                fontWeight: FontWeight.w600,
+                              ),
+                              textAlign: TextAlign.left,
                             ),
-                            textAlign: TextAlign.left,
-                          ),
-                          SizedBox(width: 8),
-                          Container(
-                            margin: EdgeInsets.only(bottom: 8),
-                            width: 8,
-                            height: 8,
-                            decoration: BoxDecoration(
-                              color: black1,
-                              shape: BoxShape.circle,
-                            ),
-                          )
-                        ],
-                      )
-                    ),
+                            SizedBox(width: 8),
+                            Container(
+                              margin: EdgeInsets.only(bottom: 8),
+                              width: 8,
+                              height: 8,
+                              decoration: BoxDecoration(
+                                color: black1,
+                                shape: BoxShape.circle,
+                              ),
+                            )
+                          ],
+                        )),
                     SizedBox(height: 16),
                     Container(
-                      width: 393 - 48,
-                      child: Text(
-                        'Chỉ một bước nữa để có thể thưởng thức không gian học tập dành riêng cho chính bạn!',
-                        style: TextStyle(
-                            fontFamily: 'Roboto',
-                            height: 1.6,
-                            letterSpacing: 0.2,
-                            fontSize: 14,
-                            color: grey1,
-                            fontWeight: FontWeight.w400),
-                        textAlign: TextAlign.justify,
-                      )
-                    ),
+                        width: 393 - 48,
+                        child: Text(
+                          'Chỉ một bước nữa để có thể thưởng thức không gian học tập dành riêng cho chính bạn!',
+                          style: TextStyle(
+                              fontFamily: 'Roboto',
+                              height: 1.6,
+                              letterSpacing: 0.2,
+                              fontSize: 14,
+                              color: grey1,
+                              fontWeight: FontWeight.w400),
+                          textAlign: TextAlign.justify,
+                        )),
                   ],
                 ),
                 SizedBox(height: 40 + 16),
@@ -143,7 +142,8 @@ class _signInScreenState extends State<signInScreen> {
                           height: 42,
                           decoration: BoxDecoration(
                             color: white2.withOpacity(0.64),
-                            border: Border.all(width: 0.5, color: grey1.withOpacity(0.32)),
+                            border: Border.all(
+                                width: 0.5, color: grey1.withOpacity(0.32)),
                             borderRadius: BorderRadius.circular(4),
                             boxShadow: [
                               BoxShadow(
@@ -169,7 +169,8 @@ class _signInScreenState extends State<signInScreen> {
                                 fontWeight: FontWeight.w400,
                               ),
                               decoration: InputDecoration(
-                                contentPadding: EdgeInsets.only(left: 16, right: 16),
+                                contentPadding:
+                                    EdgeInsets.only(left: 16, right: 16),
                                 hintStyle: TextStyle(
                                   fontFamily: 'Roboto',
                                   // height: 1.4,
@@ -183,8 +184,7 @@ class _signInScreenState extends State<signInScreen> {
                                 fillColor: white2.withOpacity(0.64),
                                 focusedBorder: OutlineInputBorder(
                                   borderSide: const BorderSide(
-                                    color: black1, width: 0.5
-                                  ),
+                                      color: black1, width: 0.5),
                                   borderRadius: BorderRadius.circular(4),
                                 ),
                                 border: OutlineInputBorder(
@@ -196,8 +196,7 @@ class _signInScreenState extends State<signInScreen> {
                                   fontSize: 0,
                                   height: 0,
                                 ),
-                              )
-                          ),
+                              )),
                         ),
                       ),
                       SizedBox(height: 28 + 8),
@@ -221,7 +220,8 @@ class _signInScreenState extends State<signInScreen> {
                           height: 42,
                           decoration: BoxDecoration(
                             color: white2.withOpacity(0.64),
-                            border: Border.all(width: 0.5, color: grey1.withOpacity(0.32)),
+                            border: Border.all(
+                                width: 0.5, color: grey1.withOpacity(0.32)),
                             borderRadius: BorderRadius.circular(4),
                             boxShadow: [
                               BoxShadow(
@@ -249,28 +249,32 @@ class _signInScreenState extends State<signInScreen> {
                               ),
                               decoration: InputDecoration(
                                 suffixIcon: InkWell(
-                                onTap: _togglePasswordView,
-                                child: isHiddenPassword
-                                  ? Stack(
-                                      alignment: Alignment.center,
-                                      children: [
-                                        Container(
-                                          padding: EdgeInsets.only(left: 16, right: 16),
-                                          child: Icon(Iconsax.eye, size: 20, color: black1)
-                                        )
-                                      ]
-                                  )
-                                  : Stack(
-                                    alignment: Alignment.center,
-                                    children: [
-                                      Container(
-                                        padding: EdgeInsets.only(left: 16, right: 16),
-                                        child: Icon(Iconsax.eye_slash, size: 20, color: grey1.withOpacity(0.64))
-                                      )
-                                    ]
-                                  )
-                                ),
-                                contentPadding: EdgeInsets.only(left: 16, right: 0),
+                                    onTap: _togglePasswordView,
+                                    child: isHiddenPassword
+                                        ? Stack(
+                                            alignment: Alignment.center,
+                                            children: [
+                                                Container(
+                                                    padding: EdgeInsets.only(
+                                                        left: 16, right: 16),
+                                                    child: Icon(Iconsax.eye,
+                                                        size: 20,
+                                                        color: black1))
+                                              ])
+                                        : Stack(
+                                            alignment: Alignment.center,
+                                            children: [
+                                                Container(
+                                                    padding: EdgeInsets.only(
+                                                        left: 16, right: 16),
+                                                    child: Icon(
+                                                        Iconsax.eye_slash,
+                                                        size: 20,
+                                                        color: grey1
+                                                            .withOpacity(0.64)))
+                                              ])),
+                                contentPadding:
+                                    EdgeInsets.only(left: 16, right: 0),
                                 hintStyle: TextStyle(
                                   fontFamily: 'Roboto',
                                   // height: 1.4,
@@ -284,8 +288,7 @@ class _signInScreenState extends State<signInScreen> {
                                 fillColor: white2.withOpacity(0.64),
                                 focusedBorder: OutlineInputBorder(
                                   borderSide: const BorderSide(
-                                    color: black1, width: 0.5
-                                  ),
+                                      color: black1, width: 0.5),
                                   borderRadius: BorderRadius.circular(4),
                                 ),
                                 border: OutlineInputBorder(
@@ -297,8 +300,7 @@ class _signInScreenState extends State<signInScreen> {
                                   fontSize: 0,
                                   height: 0,
                                 ),
-                              )
-                          ),
+                              )),
                         ),
                       ),
                     ],
@@ -306,36 +308,36 @@ class _signInScreenState extends State<signInScreen> {
                 ),
                 SizedBox(height: 24 + 8),
                 Container(
-                  child: GestureDetector(
-                    //action navigate to sign up screen
-                    onTap: () {
-                      Navigator.of(context).push(createRoute("forgotPassword"));
-                    },
-                    child: AnimatedContainer(
+                    child: GestureDetector(
+                  //action navigate to sign up screen
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: ((context) => forgotPasswordScreen())));
+                  },
+                  child: AnimatedContainer(
                       alignment: Alignment.centerRight,
                       duration: Duration(milliseconds: 300),
                       child: Text(
                         "Quên mật khẩu?",
                         style: TextStyle(
-                          color: black1,
-                          fontFamily: 'Roboto',
-                          // height: 1.4,
-                          letterSpacing: 0.2,
-                          fontWeight: FontWeight.w500,
-                          fontSize: 12
-                        ),
+                            color: black1,
+                            fontFamily: 'Roboto',
+                            // height: 1.4,
+                            letterSpacing: 0.2,
+                            fontWeight: FontWeight.w500,
+                            fontSize: 12),
                         textAlign: TextAlign.right,
-                      )
-                    ),
-                  )
-                ),
+                      )),
+                )),
                 SizedBox(height: 32 + 8),
                 Container(
                     child: GestureDetector(
                   //action navigate to sign in screen
                   onTap: () {
-                    print("luc lam thi xoa dong nay nha bà Nhất!");
-                    Navigator.of(context).push(createRoute("main"));
+                    signIn(
+                        emailController.text, passwordController.text, context);
                   },
                   child: AnimatedContainer(
                       alignment: Alignment.center,
@@ -443,52 +445,45 @@ class _signInScreenState extends State<signInScreen> {
                 //   ],
                 // )
                 SizedBox(height: 40),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'Chưa có tài khoản? ',
-                      style: TextStyle(
-                        fontFamily: 'Roboto',
-                        // height: 1.4,
-                        letterSpacing: 0.2,
-                        fontSize: 12,
-                        color: black1,
-                        fontWeight: FontWeight.w400,
-                      ),
-                      textAlign: TextAlign.center,
+                Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                  Text(
+                    'Chưa có tài khoản? ',
+                    style: TextStyle(
+                      fontFamily: 'Roboto',
+                      // height: 1.4,
+                      letterSpacing: 0.2,
+                      fontSize: 12,
+                      color: black1,
+                      fontWeight: FontWeight.w400,
                     ),
-                    Container(
+                    textAlign: TextAlign.center,
+                  ),
+                  Container(
                       child: GestureDetector(
-                        //action navigate to sign up screen
-                        onTap: () {
-                          Navigator.of(context).push(createRoute("signUp"));
-                        },
-                        child: AnimatedContainer(
-                          alignment: Alignment.center,
-                          duration: Duration(milliseconds: 300),
-                          child: Text(
-                            "Đăng ký ngay!",
-                            style: TextStyle(
+                    //action navigate to sign up screen
+                    onTap: () {
+                      Navigator.of(context).push(createRoute("signUp"));
+                    },
+                    child: AnimatedContainer(
+                        alignment: Alignment.center,
+                        duration: Duration(milliseconds: 300),
+                        child: Text(
+                          "Đăng ký ngay!",
+                          style: TextStyle(
                               color: black1,
                               fontFamily: 'Roboto',
                               // height: 1.4,
                               letterSpacing: 0.2,
                               fontWeight: FontWeight.w500,
-                              fontSize: 12
-                            ),
-                            textAlign: TextAlign.center,
-                          )
-                        ),
-                      )
-                    ),
-                  ]
-                )
+                              fontSize: 12),
+                          textAlign: TextAlign.center,
+                        )),
+                  )),
+                ])
               ],
             ),
           ),
-        )
-    );
+        ));
   }
 
   //Create function

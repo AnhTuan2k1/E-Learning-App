@@ -6,7 +6,8 @@ import 'package:flutter/material.dart';
 import 'exam_page.dart';
 
 class ExamQuestionsPage extends StatelessWidget {
-  const ExamQuestionsPage({Key? key}) : super(key: key);
+  const ExamQuestionsPage({Key? key, required this.uid}) : super(key: key);
+  final String uid;
 
   @override
   Widget build(BuildContext context) {
@@ -22,9 +23,10 @@ class ExamQuestionsPage extends StatelessWidget {
             default:
               if (snapshot.hasError)
                 return Center(child: Text(snapshot.error.toString()));
-              else if(examQuestions != null)
+              else if (examQuestions != null)
                 return buildExamQuestions(examQuestions);
-              else return Text("null");
+              else
+                return Text("null");
           }
         },
       ),
@@ -35,16 +37,17 @@ class ExamQuestionsPage extends StatelessWidget {
     return ListView.builder(
       physics: BouncingScrollPhysics(),
       itemCount: examQuestions.length,
-      itemBuilder: (context, index){
+      itemBuilder: (context, index) {
         final examquestion = examQuestions[index];
 
         return ListTile(
           leading: Icon(Icons.book_online_outlined),
-          title: Text('Đề thi số ${index+1}'),
+          title: Text('Đề thi số ${index + 1}'),
           subtitle: Text(examquestion.description),
-          onTap: (){
-            Navigator.of(context).push(
-                MaterialPageRoute(builder: (context) => ExamPage(examQuestion: examquestion)));
+          onTap: () {
+            Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) =>
+                    ExamPage(examQuestion: examquestion, uid: uid)));
           },
         );
       },

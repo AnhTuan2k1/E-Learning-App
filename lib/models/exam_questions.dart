@@ -15,23 +15,23 @@ class ExamQuestion {
   @JsonKey(defaultValue: false)
   bool submited;
 
-  ExamQuestion(this.id, this.description, this.questions, this.submited, this.mark);
+  ExamQuestion(
+      this.id, this.description, this.questions, this.submited, this.mark);
 
-
-  factory ExamQuestion.fromJson(Map<String, dynamic> json) => _$ExamQuestionFromJson(json);
+  factory ExamQuestion.fromJson(Map<String, dynamic> json) =>
+      _$ExamQuestionFromJson(json);
   Map<String, dynamic> toJson() => _$ExamQuestionToJson(this);
 
-  double makeMark(){
+  double makeMark() {
     int correctAnswer = 0;
     questions.forEach((element) {
-      if(element.selectedAnswer != null){
-        if(element.selectedAnswer == element.correctAnswer)
-          correctAnswer++;
+      if (element.selectedAnswer != null) {
+        if (element.selectedAnswer == element.correctAnswer) correctAnswer++;
       }
     });
-
-    mark = 10*correctAnswer/questions.length;
+    mark = 10 * correctAnswer / questions.length;
     submited = true;
+
     return mark;
   }
 }
